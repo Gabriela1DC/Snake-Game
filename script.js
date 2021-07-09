@@ -7,6 +7,8 @@ snake[0]={
     y: 8 * box
 }
 
+let direction="right";
+
 function createBG(){
     
     context.fillStyle='black';
@@ -21,5 +23,27 @@ function createSnake() {
     }
 }
 
-createBG();
-createSnake()
+function startGame(){
+
+    createBG();
+    createSnake();
+
+    let snake_X = snake[0].x;
+    let snake_Y = snake[0].y;
+
+    if(direction=='right') snake_X += box;
+    if (direction=='left') snake_X -= box;
+    if(direction=='up') snake_Y += box;
+    if(direction=='down') snake_Y -= box;
+
+    snake.pop();
+
+    let newHead = {
+        x: snake_X,
+        y: snake_Y
+    }
+
+    snake.unshift(newHead);
+}
+
+let game = setInterval{startGame, 100};
