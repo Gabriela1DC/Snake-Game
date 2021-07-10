@@ -1,4 +1,4 @@
-let canvas=document.getElementById('sanke');
+let canvas=document.getElementById('snake');
 let context=document.getContext('2d');
 let box=32;
 let snake=[]
